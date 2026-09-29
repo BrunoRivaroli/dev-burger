@@ -2,6 +2,6 @@
 Quando o usuario disser /doc ou Documentar ultimo commit:
 1. Identifique os arquivos do ultimo commit via git.
 2. Se dev-burger-api/ -> Estudos-Fullstack/01 - Backend/Dev Burger/
-3. Se dev-burger-front/ -> Estudos-Fullstack/02 - Frontend/Dev Burger/
+3. Se dev-burger-front/ -> Estudos-Fullstack/02 - Frontend/
 4. Crie a nota didatica com analogias e codigo real comentado.
 5. Nunca altere arquivos de codigo.

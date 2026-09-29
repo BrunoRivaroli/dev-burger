@@ -1,9 +1,9 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
-.carousel-item {
-  padding-right: 40px;
-}
+  .carousel-item {
+    padding-right: 40px;
+  }
 
   padding-left: 40px;
 `;
@@ -28,28 +28,29 @@ export const Title = styled.h2`
     left: 50%;
     transform: translateX(-50%);
   }
-`
+`;
 
-export const ContainerItems = styled.div` 
-background: url('${(props) => props.imageUrl}');
-display: flex;
-align-items: center;
-padding: 20px 10px;
-width: 100%;
-height: 250px;
-background-size: cover;
-background-position: center;
-border-radius: 20px;
+export const ContainerItems = styled.div`
+  background: url('${(props) => props.imageUrl}');
+  display: flex;
+  align-items: center;
+  padding: 20px 10px;
+  width: 100%;
+  height: 250px;
+  background-position: center;
+  background-size: cover;
+  border-radius: 20px;
+  cursor: grab;
 
-p{
-  font-size: 20px;
-  font-weight:  bold;
-  margin-top: 50px;
-  color: #fff;
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 10px 30px;
-  border-radius: 30px;
-  font-weight: 800;
-  text-align: center;
-}
-`
+  p {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 50px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 30px;
+    border-radius: 30px;
+    font-weight: 800;
+    text-align: center;
+  }
+`;
