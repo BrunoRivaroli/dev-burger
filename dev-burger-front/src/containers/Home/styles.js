@@ -24,3 +24,5 @@ export const Container = styled.section`
     url(${background});
   min-height: 100%;
 `;
+
+export const Content = styled.div``;
