@@ -22,4 +22,4 @@ export const router = createBrowserRouter([
     path: '/cardapio',
     element: <Menu />,
   },
-]);
+], { basename: import.meta.env.BASE_URL });
