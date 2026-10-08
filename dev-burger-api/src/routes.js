@@ -16,6 +16,8 @@ const upload = multer(multerConfig);
 routes.get("/health", (_req, res) => res.json({ status: "ok" }));
 routes.post("/users", UserController.store);
 routes.post("/session", SessionController.store);
+routes.get("/products", ProductController.index);
+routes.get("/categories", CategoryController.index);
 
 routes.use(authMiddleware);
 routes.post(
@@ -32,7 +34,6 @@ routes.put(
 	uploadToStorage,
 	ProductController.update,
 );
-routes.get("/products", ProductController.index);
 routes.post(
 	"/categories",
 	adminMiddleware,
@@ -47,7 +48,6 @@ routes.put(
 	uploadToStorage,
 	CategoryController.update,
 );
-routes.get("/categories", CategoryController.index);
 
 routes.post("/orders", OrderController.store);
 routes.put("/orders/:id", adminMiddleware, OrderController.update);
