@@ -12,6 +12,7 @@ import OrderController from "./app/controllers/OrderController.js";
 const routes = new Router();
 const upload = multer(multerConfig);
 
+routes.get("/health", (_req, res) => res.json({ status: "ok" }));
 routes.post("/users", UserController.store);
 routes.post("/session", SessionController.store);
 
