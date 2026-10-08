@@ -1,4 +1,5 @@
 import Sequelize, { Model } from "sequelize";
+import { publicFileUrl, useSupabaseStorage } from "../../config/storage.js";
 
 class Category extends Model {
 	static init(sequelize) {
@@ -9,6 +10,7 @@ class Category extends Model {
 				url: {
 					type: Sequelize.VIRTUAL,
 					get() {
+						if (useSupabaseStorage) return publicFileUrl(this.path);
 						return `${process.env.API_URL || "http://localhost:3001"}/category-file/${this.path}`;
 					},
 				},

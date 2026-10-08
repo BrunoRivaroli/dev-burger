@@ -1,6 +1,7 @@
 import { Router } from "express";
 import multer from "multer";
 import multerConfig from "./config/multer.cjs";
+import { uploadToStorage } from "./config/storage.js";
 import UserController from "./app/controllers/UserController.js";
 import SessionController from "./app/controllers/SessionController.js";
 import ProductController from "./app/controllers/ProductController.js";
@@ -21,12 +22,14 @@ routes.post(
 	"/products",
 	adminMiddleware,
 	upload.single("file"),
+	uploadToStorage,
 	ProductController.store,
 );
 routes.put(
 	"/products/:id",
 	adminMiddleware,
 	upload.single("file"),
+	uploadToStorage,
 	ProductController.update,
 );
 routes.get("/products", ProductController.index);
@@ -34,12 +37,14 @@ routes.post(
 	"/categories",
 	adminMiddleware,
 	upload.single("file"),
+	uploadToStorage,
 	CategoryController.store,
 );
 routes.put(
 	"/categories/:id",
 	adminMiddleware,
 	upload.single("file"),
+	uploadToStorage,
 	CategoryController.update,
 );
 routes.get("/categories", CategoryController.index);
