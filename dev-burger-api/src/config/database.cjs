@@ -1,7 +1,11 @@
+const pg = require("pg");
+
 const url = process.env.DATABASE_URL;
 
 module.exports = {
   dialect: "postgres",
+  // Passa o driver explicitamente para o empacotador da Vercel inclui-lo.
+  dialectModule: pg,
   ...(url
     ? {
         url,
