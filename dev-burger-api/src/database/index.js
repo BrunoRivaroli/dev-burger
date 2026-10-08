@@ -14,7 +14,11 @@ class Database {
 	}
 
 	init() {
-		this.connection = new Sequelize(databaseConfig);
+		// Com DATABASE_URL, a URL precisa ir como 1º argumento: passando só o
+		// objeto de config, o Sequelize ignora a chave "url" e usa localhost.
+		this.connection = databaseConfig.url
+			? new Sequelize(databaseConfig.url, databaseConfig)
+			: new Sequelize(databaseConfig);
 		models
 			.map((model) => model.init(this.connection))
 			.map(
