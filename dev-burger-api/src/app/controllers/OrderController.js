@@ -76,7 +76,7 @@ class OrderController {
 			.json({ message: "Status atualizado com sucesso!" });
 	}
 
-	async index(request, response) {
+	async index(_request, response) {
 		const orders = await Order.find();
 		return response.status(200).json(orders);
 	}
