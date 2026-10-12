@@ -6,7 +6,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
 import logo from '../../assets/Logo.svg';
-import { Button } from '../../components/Button';
+import { Button } from '../../components';
 import { api } from '../../services/api';
 import {
   Container,
