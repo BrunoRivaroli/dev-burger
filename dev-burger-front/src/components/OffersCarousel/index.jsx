@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
-import { api } from '../../services/api.js';
 import _Carousel from 'react-multi-carousel';
+
+import { api } from '../../services/api.js';
 const Carousel = _Carousel.default || _Carousel;
 import 'react-multi-carousel/lib/styles.css';
-import { Container, Title } from './styles.js';
-import { CardProduct } from '../CardProduct';
 import { formatPrice } from '../../utils/formatPrice';
+import { CardProduct } from '../CardProduct';
+import { Container, Title } from './styles.js';
 
 export function OffersCarousel() {
   const [offers, setOffers] = useState([]);

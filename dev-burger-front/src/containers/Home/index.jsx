@@ -1,7 +1,7 @@
 import { CategoriesCarousel } from '../../components/CategoriesCarousel';
 import { OffersCarousel } from '../../components/OffersCarousel';
-import { Banner, Container, Content } from './styles';
 import { useUser } from '../../hooks/UserContext';
+import { Banner, Container, Content } from './styles';
 
 export function Home() {
   console.log(useUser());

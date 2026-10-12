@@ -1,7 +1,9 @@
-import styled from 'styled-components';
-import BannerMenu from '../../assets/banner-menu.svg';
-import background from '../../assets/background-devburger.svg';
 import { Link } from 'react-router-dom';
+
+import styled from 'styled-components';
+
+import background from '../../assets/background-devburger.svg';
+import BannerMenu from '../../assets/banner-menu.svg';
 
 export const Container = styled.section`
   width: 100%;

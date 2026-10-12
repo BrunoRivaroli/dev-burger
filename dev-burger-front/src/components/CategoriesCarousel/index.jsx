@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
-import { api } from '../../services/api';
 import _Carousel from 'react-multi-carousel';
+
+import { api } from '../../services/api';
 const Carousel = _Carousel.default || _Carousel;
 import 'react-multi-carousel/lib/styles.css';
 import { Container, Title, ContainerItems, CategoryButton } from './styles.js';
+
 import { useNavigate, useLocation } from 'react-router-dom';
 
 export function CategoriesCarousel() {

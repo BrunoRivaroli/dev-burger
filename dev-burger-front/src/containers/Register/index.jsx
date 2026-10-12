@@ -1,12 +1,13 @@
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { toast } from 'react-toastify';
-import * as yup from "yup";
+import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
-import logo from '../../assets/Logo.svg'
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+
+import logo from '../../assets/Logo.svg';
+import { Button } from '../../components/Button';
 import { api } from '../../services/api';
-import { Button } from '../../components/Button'
 import {
   Container,
   LeftContainer,
@@ -14,15 +15,12 @@ import {
   Title,
   Form,
   Link,
-  InputContainer
-} from './styles'
-
+  InputContainer,
+} from './styles';
 
 const schema = yup
   .object({
-    name: yup
-      .string()
-      .required('Campo Obrigatório.'),
+    name: yup.string().required('Campo Obrigatório.'),
     email: yup
       .string()
       .email('E-mail Inválido.')
@@ -39,7 +37,6 @@ const schema = yup
   .required();
 
 export function Register() {
-
   const navigate = useNavigate();
 
   const {
@@ -48,22 +45,21 @@ export function Register() {
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
-  })
+  });
 
   const onSubmit = async (data) => {
-
     try {
-      const { status } =
-        await api.post('/users',
-          {
-            name: data.name,
-            email: data.email,
-            password: data.password
-          },
-          {
-            validateStatus: () => true
-          },
-        );
+      const { status } = await api.post(
+        '/users',
+        {
+          name: data.name,
+          email: data.email,
+          password: data.password,
+        },
+        {
+          validateStatus: () => true,
+        },
+      );
 
       if (status === 201 || status === 200) {
         setTimeout(() => {
@@ -90,27 +86,45 @@ export function Register() {
         <Form onSubmit={handleSubmit(onSubmit)}>
           <InputContainer>
             <label>Name</label>
-            <input type="text" placeholder="Digite seu nome" {...register("name")} />
+            <input
+              type="text"
+              placeholder="Digite seu nome"
+              {...register('name')}
+            />
             <p>{errors?.name?.message}</p>
           </InputContainer>
           <InputContainer>
             <label>Email</label>
-            <input type="email" placeholder="Digite seu email" {...register("email")} />
+            <input
+              type="email"
+              placeholder="Digite seu email"
+              {...register('email')}
+            />
             <p>{errors?.email?.message}</p>
           </InputContainer>
           <InputContainer>
             <label>Senha</label>
-            <input type="password" placeholder="Digite sua senha" {...register("password")} />
+            <input
+              type="password"
+              placeholder="Digite sua senha"
+              {...register('password')}
+            />
             <p>{errors?.password?.message}</p>
           </InputContainer>
           <InputContainer>
             <label>Confirmar Senha</label>
-            <input type="password" placeholder="Confirme sua senha" {...register("confirmPassword")} />
+            <input
+              type="password"
+              placeholder="Confirme sua senha"
+              {...register('confirmPassword')}
+            />
             <p>{errors?.confirmPassword?.message}</p>
           </InputContainer>
           <Button type="submit">Entrar</Button>
         </Form>
-        <p>Já possui uma conta? <Link to='/login'>Clique aqui.</Link></p>
+        <p>
+          Já possui uma conta? <Link to="/login">Clique aqui.</Link>
+        </p>
       </RightContainer>
     </Container>
   );

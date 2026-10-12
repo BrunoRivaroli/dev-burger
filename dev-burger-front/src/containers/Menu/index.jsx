@@ -1,3 +1,9 @@
+import { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+
+import { CardProduct } from '../../components/CardProduct';
+import { api } from '../../services/api';
+import { formatPrice } from '../../utils/formatPrice';
 import {
   Container,
   Banner,
@@ -5,11 +11,6 @@ import {
   ProductsContainer,
   CategoryButton,
 } from './styles';
-import { useState, useEffect } from 'react';
-import { api } from '../../services/api';
-import { formatPrice } from '../../utils/formatPrice';
-import { CardProduct } from '../../components/CardProduct';
-import { useNavigate, useLocation } from 'react-router-dom';
 
 export function Menu() {
   const [categories, setCategories] = useState([]);

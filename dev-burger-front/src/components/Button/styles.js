@@ -14,4 +14,4 @@ export const ContainerButton = styled.button`
   &:hover {
     background-color: #6f3576;
   }
-`
+`;
