@@ -1,7 +1,11 @@
 import Stripe from "stripe";
 import * as Yup from "yup";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+// Sem a chave (ex.: produção ainda sem STRIPE_SECRET_KEY) o construtor lança erro
+// e derrubaria a API inteira no import; por isso só cria o cliente se a chave existir.
+const stripe = process.env.STRIPE_SECRET_KEY
+  ? new Stripe(process.env.STRIPE_SECRET_KEY)
+  : null;
 
 const calculateOrderAmount = (items) => {
   const total = items.reduce((acc, current) => {
@@ -13,6 +17,10 @@ const calculateOrderAmount = (items) => {
 
 class CreatePaymentIntentController {
 	async store(request, response) {
+    if (!stripe) {
+      return response.status(503).json({ error: "Pagamento indisponível" });
+    }
+
     const schema = Yup.object({
           products: Yup.array()
             .required()
