@@ -1,3 +1,4 @@
+require("dotenv/config"); // o sequelize-cli também precisa ler o .env
 const pg = require("pg");
 
 const url = process.env.DATABASE_URL;
@@ -15,7 +16,7 @@ module.exports = {
         host: process.env.DB_HOST || "localhost",
         port: process.env.DB_PORT || 5432,
         username: process.env.DB_USER || "admin",
-        password: process.env.DB_PASSWORD || "28102022",
+        password: process.env.DB_PASSWORD,
         database: process.env.DB_NAME || "dev-burger-db",
       }),
   define: {

@@ -1,4 +1,4 @@
 export default {
-	secret: process.env.JWT_SECRET || "dev-secret-troque-em-producao",
+	secret: process.env.JWT_SECRET,
 	expiresIn: "7d",
 };
