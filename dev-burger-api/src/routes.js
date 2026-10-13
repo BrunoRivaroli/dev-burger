@@ -9,6 +9,7 @@ import CategoryController from "./app/controllers/CategoryController.js";
 import authMiddleware from "./app/middlewares/auth.js";
 import adminMiddleware from "./app/middlewares/admin.js";
 import OrderController from "./app/controllers/OrderController.js";
+import CreatePaymentIntentController from "./app/controllers/stripe/CreatePaymentIntentController.js";
 
 const routes = new Router();
 const upload = multer(multerConfig);
@@ -53,5 +54,7 @@ routes.put(
 routes.post("/orders", OrderController.store);
 routes.put("/orders/:id", adminMiddleware, OrderController.update);
 routes.get("/orders", OrderController.index);
+
+routes.post("/create-payment-intent", CreatePaymentIntentController.store);
 
 export default routes;
